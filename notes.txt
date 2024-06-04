@@ -1,0 +1,39 @@
+B2キャラ（墓地入り口）?
+【72】短刀_片手近距離 ?
+ソウルドレイン1【ＡＩ】
+装備重量アップ
+混沌の炎のツヴァイヘンダー
+橙チョーク
+ゴールドラン強化
+ムカデ_腐食攻撃
+カエルエイ モーションチェンジ
+腐食攻撃・投げ連続
+
+
+B2kyara（grave rimouth ）?
+【72】dagger _distance-mathematics hand  ?
+sourudorein1【ＡＩ】
+sum equipment-accounting apu
+chaos 's ❌'s tsuvaihendaa
+orange chooku
+goorudoran❌
+mukade_attack eclipse 
+kaeruei mooshonchenji
+attack eclipse ge❌
+
+u to space after consonent
+get rid of vowels after d
+r to l, version wih both
+get rid of vowel at the end of term
+ou to oh
+
+D-cleanup/refactor blue system
+D-make sure shit displays at the end for blue
+-saved list of missing shit - output as formatted JSON
+-processed engrish, perms and matching w/ words if possible
+D-kanji next to pink words
+-note that engrish sounds more british
+-add a manual input into the missing word list
+-other feature
+D-try to highlight corresponding sections - codeEdit node
+D-Higher rez icon

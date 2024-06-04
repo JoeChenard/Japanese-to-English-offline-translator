@@ -1,0 +1,136 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1umhpib2w76f"]
+
+[ext_resource type="Script" path="res://translation.gd" id="1_5lr1y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqjyv"]
+bg_color = Color(0.4, 0.388235, 0.839216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lguq5"]
+bg_color = Color(0.0941176, 0.454902, 0.501961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psruv"]
+bg_color = Color(0.85098, 0.443137, 0.65098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6mkn"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5lr1y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Input"
+wrap_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="kanaOutput" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+bbcode_enabled = true
+autowrap_mode = 2
+selection_enabled = true
+
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer/kanaOutput"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nqjyv")
+
+[node name="kanaPerms" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+autowrap_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer/kanaPerms"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lguq5")
+
+[node name="dictionaryOutput" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 3
+autowrap_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/dictionaryOutput"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_psruv")
+
+[node name="reminder" type="Label" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "※ remember on syllable groups to try to substitue L for R and B for V.
+※ It may also be helpful to drop the U at the end of groups or between S and K.
+※ It's important to sound out words, e.g. tsuvaihanda -> zweihander
+※There may just sometimes not be spaces between words in syllable groups. It may be useful to replace U with a space in some cases e.g. sourudorein -> soul drain
+※ U after an O is used to extend the O sound (see previous example)"
+autowrap_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_top = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "Notes on JP"
+
+[node name="Panel" type="Panel" parent="CheckButton"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x6mkn")
+
+[connection signal="text_changed" from="VBoxContainer/TextEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="CheckButton" to="." method="_on_check_button_pressed"]
